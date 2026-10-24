@@ -2,7 +2,6 @@
 
 Altay's private hub for the MEGA.dev course.
 
-- Notes are Altay's own; keep course material out except short quotes with a link.
-- Lesson repos clone into `lessons/`, which git ignores; link them from the note.
+- Notes live in the uinaf Notion: [MEGA.dev](https://app.notion.com/p/MEGA-dev-403e75710b52812cb315f8d9b5868f2f). Git keeps only code.
+- Lesson repos clone into `lessons/`, which git ignores.
 - Read mega.dev through [llms.txt](https://mega.dev/llms.txt) and its MCP, not a browser.
-- Name lesson notes `notes/week-N/NN-slug.md`, NN the course lesson number.
