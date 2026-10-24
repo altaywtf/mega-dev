@@ -37,4 +37,5 @@ All sessions are recorded.
 ## Open
 
 - [challenge.md](https://mega.dev/challenge.md): agent self-assessment that may upload a summary. Read it before running.
+- Discord tracking: parked. Only clean path is a bot; ask MEGA to publish a [discrawl](https://github.com/openclaw/discrawl) `--public-only` snapshot I can `subscribe` to.
 - Final project: apply the course to one of my own projects. Pick one by week 3.
