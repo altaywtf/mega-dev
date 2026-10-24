@@ -27,6 +27,13 @@ All sessions are recorded.
 
 12 skill cards, earned across lessons, workshops and building. Each card is an installable skill.
 
+## Agent access
+
+- [llms.txt](https://mega.dev/llms.txt): index of pages, posts and drops.
+- [Remote MCP](https://mega.dev/mcp) with OAuth: `operations.search`, `describe`, `invoke`, scoped to my MEGA identity.
+- [OpenAPI](https://mega.dev/api/operator/v1/openapi.json): mostly staff operations; `press/modules` and `content` may expose lessons once enrolled.
+- [Drops](https://mega.dev/drops): field notes with runnable artifacts. Close to my setup: [remote agent setup](https://mega.dev/remote-agent-setup), [reasoning effort](https://mega.dev/reasoning-effort), [wrong about MCPs](https://mega.dev/wrong-about-mcps), [ship without reading the code](https://mega.dev/ship-without-reading-the-code).
+
 ## Open
 
 - [challenge.md](https://mega.dev/challenge.md): agent self-assessment that may upload a summary. Read it before running.
