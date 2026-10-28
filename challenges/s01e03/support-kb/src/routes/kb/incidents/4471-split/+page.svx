@@ -1,0 +1,46 @@
+---
+layout: runbook
+title: '#4471 · three problems, three tickets'
+owner: altay
+status: proposed
+reviewed: 2026-10-28
+signature: v1.eyJzdWIiOiI2MjMiLCJhdWQiOiJjaGFsbGVuZ2U6d2hhdC1pdC1zaG93cyIsImlhdCI6MTc5MzIwOTk2MSwiZXhwIjoxNzkzMjk2MzYxfQ.BuoVmWB2gkUDEB_ecwxxPMsF5mSYEa6dEOTQyPNUohw
+---
+
+<script>
+  import ProblemTable from '#lib/kb/ProblemTable.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+[#4471](/kb/incidents/4471) says one issue, one fix queued. Its own table already disagrees: it
+shows two causes and footnotes a third. Read by what each report says, #4471 holds three problems,
+and the queued parser fix closes only one of them.
+
+<Callout kind="warn">
+Not one issue. Three problems, each with its own ticket. The parser fix leaves the other two open.
+</Callout>
+
+## What #4471 holds
+
+<ProblemTable ticket={4471} repo="altaywtf/mega-dev" tickets={{ parser: 3, hint: 4, shift: 5 }} />
+
+## How to tell them apart
+
+- **parser**: day and month swapped, any channel, any day-first tenant. The shared parser reads
+  month first.
+- **hint**: day and month swapped, but only through the booking-v3 form. Its hint asks for
+  `MM/DD/YYYY`, people obey, and the form reads the date day first. Fix the form, not the parser.
+- **shift**: the date moves by one day, which no day/month swap can do. Lisbon and Toronto saw
+  different days for the same meeting. Looks like timezones. The desk already flags these in
+  `desk-notes.json`; until now they were a footnote under `parser`.
+
+## What went wrong in triage
+
+- [Decision 0001](/kb/decisions/0001-dedupe-by-subject) merges on subject line, and every one of
+  these subjects says "wrong date". Subjects describe the symptom, not the cause.
+- Intake's tag comes from the reporter's browser. The cause comes from the tenant and the way in,
+  so the tag is off for a share of every problem above.
+- The export repeats rows across pages. Count unique report ids, never rows.
+
+<RenderStamp {signature} />
