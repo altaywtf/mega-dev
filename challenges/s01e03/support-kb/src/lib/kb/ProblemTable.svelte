@@ -26,6 +26,7 @@
   ({split.rows - split.merged.length} repeated rows dropped) ·
   <strong>{split.groups.length}</strong> problems
 </p>
+<p class="muted"><code>shift</code> reports stay counted under the cause the desk files them by, so rows add up to more than the total.</p>
 
 <table>
   <thead>

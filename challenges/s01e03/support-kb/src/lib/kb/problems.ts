@@ -1,6 +1,7 @@
 // The problems #4471 really holds. causes.ts sorts a report by tenant and channel; that cannot see a
 // report whose date moved by one day, which no day/month swap explains. The desk flags those by hand
-// in desk-notes.json, so they become their own problem here instead of a footnote under `parser`.
+// in desk-notes.json. They get their own row and ticket, and stay counted under the cause the desk
+// files them by, as the desk counts (causes.ts `readAs`).
 import notes from '#lib/data/desk-notes.json';
 import { causeOf, uniqueById, type Report, type Tenant } from '#lib/kb/causes';
 
@@ -26,8 +27,9 @@ export function splitTicket(all: Report[], ticket: number, tenantOf: (r: Report)
   const merged = uniqueById(all).filter((r) => r.mergedInto === ticket);
   const by = new Map<ProblemGroup['problem'], Report[]>();
   for (const r of merged) {
-    const p = problemOf(r, tenantOf(r));
-    by.set(p, [...(by.get(p) ?? []), r]);
+    const cause = causeOf(r, tenantOf(r)) ?? 'unplaced';
+    by.set(cause, [...(by.get(cause) ?? []), r]);
+    if (problemOf(r, tenantOf(r)) === 'shift') by.set('shift', [...(by.get('shift') ?? []), r]);
   }
   const groups: ProblemGroup[] = [...by.entries()]
     .map(([problem, rs]) => {
